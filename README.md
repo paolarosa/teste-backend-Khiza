@@ -1,73 +1,41 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Seleção Khizer - Dev Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+![logo khiza](img/capa_khiza.png)
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Este é um projeto de teste para o processo seletivo de desenvolvedor backend da Khiza. Para saber mais sobre a empresa acesse <a href="https://khizadao.com">nosso site</a>.
 
-## Description
+## Descrição do teste
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Utilize a API da Reservoir para consolidar dados sobre coleções de NFTs no seu banco de dados. O dado a ser consolidado é o `floorSale`, que representa o menor preço de venda de um NFT em um determinado período.
 
-## Installation
+**Recursos:**
+- Documentação da API: https://docs.reservoir.tools/reference/getcollectionsv6
+- Como criar sua chave de API: https://docs.reservoir.tools/reference/dashboard-sign-up
 
-```bash
-$ npm install
-```
+## Requisitos obrigatórios
 
-## Running the app
+- Utilize um framework backend de sua escolha (sugestão: Laravel ou nest.js);
+- Utilize um banco de dados de sua preferência (sugestão: MySQL ou PostgresSQL);
+- Implemente um endpoint `POST /collection` que cadastra uma coleção a ser sincronizada posteriormente na rota `POST /sync`;
+  - A coleção é identificada pelo seu `id` (consultar retorno da API);
+- Implemente um endpoint `POST /sync` que dispara a atualização de dados de todas as coleções cadastradas;
+- Implemente um endpoint `GET /collection/:id` que retorna os dados de uma coleção específica;
+- Implemente um endpoint `GET /collection` que retorna os seguintes dados:
+  - Média dos `floorSaleChange` de 30 dias das coleções que estão no seu banco;
+  - Qual é o menor e o maior valor de `floorSaleChange` de 30 dias;
+- Os dados devem ser gravados e consultados no seu banco de dados e não diretamente da API;
+- Os valores de `floorSale` devem ser exibidos em porcentagem;
 
-```bash
-# development
-$ npm run start
+## Requisitos opcionais (bônus)
 
-# watch mode
-$ npm run start:dev
+- Implemente um filtro por data de criação da coleção no endpoint `GET /collection`;
+- Escreva um `docker-compose.yml` para subir a aplicação;
+- Implemente um sistema de autenticação para garantir que apenas entidades autorizadas possam chamar os endpoints `POST /sync` e `POST /collection`;
 
-# production mode
-$ npm run start:prod
-```
+## Observações
 
-## Test
+Os dados não precisam ser atualizados em tempo real, mas é importante que a aplicação seja capaz de atualizar os dados quando requisitado. Também não é necessária a implementação de autenticação, todas as rotas podem ser públicas a não ser que você queira fazer o requisito opcional.
+Não é necessário guardar o histórico de atualizações, apenas o dado mais recente.
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+Em caso de dúvidas sobre a implementação entre em contato via e-mail com
+<a href="mailto:yudi@khizadao.com">yudi@khizadao.com</a> ou entre em nosso servidor do Discord <a href="https://discord.gg/9VAqhxp6K6">clicando aqui</a>.
