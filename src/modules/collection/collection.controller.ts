@@ -32,7 +32,7 @@ export class CollectionController {
   @UseGuards(AuthGuard('jwt'))
   async syncCollections() {
     await this.collectionService.syncCollections();
-    return { message: 'Collections synced successfully.' };
+    return { message: 'Coleções atualizadas com sucesso' };
   }
 
   @Get()

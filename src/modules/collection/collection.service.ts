@@ -80,7 +80,7 @@ export class CollectionService {
         await this.updateCollectionData(collection, collectionData);
       }
     }catch (error) {
-      console.error('Error during synchronization:', error);
+      console.error('Erro durante sincronização:', error);
     }
   
   }

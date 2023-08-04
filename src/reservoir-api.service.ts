@@ -17,7 +17,7 @@ export class ReservoirApiService {
       );
       return response.data;
     } catch (error) {
-      throw new Error('Failed to fetch collection data from Reservoir API');
+      throw new Error('Falha ao obter dados da API');
     }
   }
 }

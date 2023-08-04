@@ -13,7 +13,7 @@ export class AuthController {
   async login(@Body() loginDto: LoginDto) {
     const user = await this.authService.validateUser(loginDto.email, loginDto.password);
     if (!user) {
-      return { message: 'Invalid credentials' };
+      return { message: 'Email ou senha inválidos' };
     }
     const token = await this.authService.generateToken(user);
     return { token };
@@ -26,6 +26,6 @@ export class AuthController {
 
     const createdUser = await this.userService.createUser(user);
 
-    return { message: 'User created successfully', user: createdUser };
+    return { message: 'Usuário criado com sucesso', user: createdUser };
   }
 }
